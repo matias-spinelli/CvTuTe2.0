@@ -37,8 +37,7 @@ el código.
 
 | Home                                         | Experiencias                                         | Extras                                         |
 | -------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------- |
-| <img src="<img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2025-09-25 at 15 23 02" src="https://github.com/user-attachments/assets/1c6f9795-8b70-4a42-a58b-05361f8deeaf" />
-" width="250"> | <img src="Screenshots/experiencias.png" width="250"> | <img src="Screenshots/extras.png" width="250"> |
+| <img width="250" alt="Simulator Screenshot - iPhone 17 Pro - 2025-09-25 at 15 23 02" src="https://github.com/user-attachments/assets/1c6f9795-8b70-4a42-a58b-05361f8deeaf" /> | <img src="Screenshots/experiencias.png" width="250"> | <img src="Screenshots/extras.png" width="250"> |
 
 | Contacto                                         | Detalle                                         | Fullscreen                                         |
 | ------------------------------------------------ | ----------------------------------------------- | -------------------------------------------------- |
