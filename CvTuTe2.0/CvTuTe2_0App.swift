@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct CvTuTe2_0App: App {
+    @StateObject private var experienciasViewModel = ExperienciasViewModel()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CustomTabView()
+                .environmentObject(experienciasViewModel)
         }
     }
 }

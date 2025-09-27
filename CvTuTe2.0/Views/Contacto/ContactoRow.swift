@@ -8,11 +8,39 @@
 import SwiftUI
 
 struct ContactoRow: View {
+    let contacto: Contacto
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Image(contacto.image)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 30, height: 30)
+                .padding(.trailing, 8)
+
+            Text(contacto.name)
+                .font(.headline)
+
+            Spacer()
+
+            Image(systemName: "chevron.right")
+                .foregroundColor(.gray)
+        }
+        .contentShape(Rectangle())
+        .onTapGesture {
+            openLink(contacto.urlLink)
+        }
+    }
+
+    private func openLink(_ urlString: String) {
+        if let url = URL(string: urlString) {
+            UIApplication.shared.open(url)
+        }
     }
 }
 
 #Preview {
-    ContactoRow()
+    let contactoViewModel = ContactoViewModel()
+    let contactos = contactoViewModel.contactos
+    ContactoRow(contacto: contactos[2])
 }

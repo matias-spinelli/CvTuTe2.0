@@ -1,7 +1,73 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-
+    "experiencias_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Experiencia Laboral"
+          }
+        }
+      }
+    },
+    "extras_title" : {
+      "comment" : "Extras",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extras"
+          }
+        }
+      }
+    },
+    "gotoAppStore" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ir al App Store"
+          }
+        }
+      }
+    },
+    "iosdeveloper" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iOS Developer"
+          }
+        }
+      }
+    },
+    "programacion" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Programación"
+          }
+        }
+      }
+    },
+    "skills_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skills"
+          }
+        }
+      }
+    }
   },
   "version" : "1.1"
 }

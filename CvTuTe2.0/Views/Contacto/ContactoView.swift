@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct ContactoView: View {
+    @StateObject private var viewModel = ContactoViewModel()
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 0) {
+            TitleView(text: "Contacto")
+
+            List(viewModel.contactos) { contacto in
+                ContactoRow(contacto: contacto)
+            }
+            .listStyle(.insetGrouped)
+        }
     }
 }
 

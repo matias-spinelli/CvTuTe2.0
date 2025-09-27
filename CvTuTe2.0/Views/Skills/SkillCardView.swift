@@ -9,29 +9,27 @@ import SwiftUI
 
 struct SkillCardView: View {
     let skill: Skill
-    
+
     var body: some View {
-        VStack {
-            if let imageName = skill.image {
-                Image(imageName)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 50)
-                    .padding(.top, 8)
-            }
-            
+        VStack(spacing: 16) {
+            SkillBadgeView(skill: skill, enableFlip: false)
+                .frame(width: 120, height: 120)
+                .frame(maxWidth: .infinity, alignment: .center)
+
             Text(skill.name)
-                .font(.footnote)
+                .font(.headline)
                 .fontWeight(.semibold)
-                .foregroundColor(.white)
+                .foregroundColor(.primary)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 4)
                 .padding(.bottom, 8)
+                .lineLimit(2)
+                .minimumScaleFactor(0.7)
         }
-        .frame(width: 150, height: 160)
-        .background(skill.level.gradient)
+        .frame(width: 170, height: 200)
+        .background(Color(.systemBackground))
         .cornerRadius(16)
-        .shadow(radius: 4)
+        .shadow(color: Color.black.opacity(0.06), radius: 6, x: 0, y: 3)
     }
 }
 

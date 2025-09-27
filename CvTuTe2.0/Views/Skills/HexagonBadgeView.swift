@@ -1,5 +1,5 @@
 //
-//  HexagonBadgeShapeView.swift
+//  HexagonBadgeView.swift
 //  CvTuTe2.0
 //
 //  Created by Matías Spinelli on 23/09/2025.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HexagonBadgeShapeView: View {
+struct HexagonBadgeView: View {
     let gradient: LinearGradient
     
     var body: some View {
@@ -32,13 +32,11 @@ struct HexagonBadgeShapeView: View {
                     lineWidth: 6
                 )
             
-
             HexagonShape()
                 .stroke(Color.white.opacity(0.8), lineWidth: 2)
                 .blur(radius: 1)
                 .blendMode(.screen)
             
-
             HexagonShape()
                 .fill(
                     LinearGradient(
@@ -72,5 +70,5 @@ struct HexagonShape: Shape {
 }
 
 #Preview {
-    HexagonBadgeShapeView(gradient: LinearGradient(colors: [Color.tuteBlue, Color.bocaYellow], startPoint: .topLeading, endPoint: .bottomTrailing))
+    HexagonBadgeView(gradient: LinearGradient(colors: [Color.tuteBlue, Color.bocaYellow], startPoint: .topLeading, endPoint: .bottomTrailing))
 }

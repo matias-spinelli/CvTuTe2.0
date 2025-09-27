@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+struct Extra: Identifiable, Decodable {
+    let id = UUID()
+    let imageName: String
+    let description: String
+    let empresa: String
+    
+    var experienciaLaboral: ExperienciaLaboral?
+    
+    private enum CodingKeys: String, CodingKey {
+        case imageName, description, empresa
+        
+    }
+}

@@ -6,3 +6,18 @@
 //
 
 import Foundation
+import Combine
+
+class ExperienciasViewModel: ObservableObject {
+    @Published var experiencias: [ExperienciaLaboral] = []
+    
+    init() {
+        loadExperiencias()
+    }
+    
+    private func loadExperiencias() {
+        if let data: [ExperienciaLaboral] = JSONLoader.load("experiencias", as: [ExperienciaLaboral].self) {
+            self.experiencias = data
+        }
+    }
+}

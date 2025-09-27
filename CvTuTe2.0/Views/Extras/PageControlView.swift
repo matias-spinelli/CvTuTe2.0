@@ -1,18 +1,28 @@
-//
-//  PageControlView.swift
-//  CvTuTe2.0
-//
-//  Created by Matías Spinelli on 26/09/2025.
-//
-
 import SwiftUI
 
 struct PageControlView: View {
+    let totalPages: Int
+    @Binding var currentPage: Int
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack(spacing: 8) {
+            ForEach(0..<totalPages, id: \.self) { index in
+                Circle()
+                    .fill(index == currentPage ? Color.tuteBlue : Color.gray.opacity(0.5))
+                    .frame(width: 10, height: 10)
+                    .onTapGesture {
+                        withAnimation {
+                            currentPage = index
+                        }
+                    }
+            }
+        }
+        .padding(.top, 12)
     }
 }
 
 #Preview {
-    PageControlView()
+    StatefulPreviewWrapper(1) { currentPage in
+        PageControlView(totalPages: 3, currentPage: currentPage)
+    }
 }

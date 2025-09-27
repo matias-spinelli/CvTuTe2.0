@@ -9,10 +9,11 @@ import SwiftUI
 
 struct TrailingIconLabelStyle: LabelStyle {
     func makeBody(configuration: Configuration) -> some View {
-        HStack {
-            configuration.title
+        HStack(spacing: 6) {
             Spacer()
+            configuration.title
             configuration.icon
+            Spacer()
         }
     }
 }

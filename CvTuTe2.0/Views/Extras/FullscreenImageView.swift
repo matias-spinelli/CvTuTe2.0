@@ -8,11 +8,29 @@
 import SwiftUI
 
 struct FullscreenImageView: View {
+    let extra: Extra
+    @Environment(\.dismiss) var dismiss
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack(alignment: .topTrailing) {
+            ZoomableImageView(imageName: extra.imageName) {
+                dismiss()
+            }
+            .ignoresSafeArea()
+            
+            Button(action: { dismiss() }) {
+                Image(systemName: "xmark.circle.fill")
+                    .font(.system(size: 32))
+                    .foregroundColor(.white)
+                    .padding()
+            }
+        }
     }
 }
 
 #Preview {
-    FullscreenImageView()
+    let experiencias = ExperienciasViewModel().experiencias
+    let extrasViewModel = ExtrasViewModel()
+    extrasViewModel.loadExtras(with: experiencias)
+    return FullscreenImageView(extra: extrasViewModel.extras[0])
 }

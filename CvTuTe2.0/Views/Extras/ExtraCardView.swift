@@ -7,12 +7,24 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct ExtraCardView: View {
+    let extra: Extra
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Image(extra.imageName)
+            .resizable()
+            .scaledToFill()
+            .frame(height: 260)
+            .clipped()
+            .cornerRadius(16)
+            .shadow(radius: 5)
+            .padding(.horizontal, 16)
     }
 }
 
-#Preview {
-    ExtraCardView()
-}
+
+//#Preview {
+//    ExtraCardView()
+//}

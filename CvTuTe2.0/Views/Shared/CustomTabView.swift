@@ -7,10 +7,13 @@
 
 import SwiftUI
 
+
 enum Tab {
+    case extras
     case experience
     case about
     case skills
+    case contact
 }
 
 struct CustomTabView: View {
@@ -20,12 +23,16 @@ struct CustomTabView: View {
         VStack(spacing: 0) {
             ZStack {
                 switch selectedTab {
+                case .extras:
+                    ExtrasView()
                 case .experience:
                     ExperienciasListView()
                 case .about:
                     AboutView()
                 case .skills:
                     SkillsView()
+                case .contact:
+                    ContactoView()
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -43,11 +50,21 @@ struct CustomTabBar: View {
     
     var body: some View {
         ZStack {
-
             Color(.systemGray6)
                 .ignoresSafeArea(edges: .bottom)
             
             HStack {
+
+                TabBarButton(
+                    icon: "photo.fill.on.rectangle.fill",
+                    title: "Extras",
+                    isSelected: selectedTab == .extras
+                ) {
+                    withAnimation(.easeInOut) { selectedTab = .extras }
+                }
+                
+                Spacer()
+                
                 TabBarButton(
                     icon: "briefcase.fill",
                     title: "Experiencia",
@@ -58,6 +75,31 @@ struct CustomTabBar: View {
                 
                 Spacer()
                 
+                Button(action: {
+                    withAnimation(.spring(response: 0.35, dampingFraction: 0.6)) {
+                        selectedTab = .about
+                    }
+                }) {
+                    ZStack {
+                        Circle()
+                            .fill(Color.white)
+                            .frame(width: 72, height: 72)
+                            .shadow(color: .black.opacity(0.15), radius: 6, x: 0, y: 4)
+                        
+                        Image(systemName: "person.crop.circle.fill")
+                            .font(.system(size: 32))
+                            .foregroundColor(selectedTab == .about ? .tuteBlue : .gray)
+                    }
+                    .overlay(
+                        Circle()
+                            .stroke(selectedTab == .about ? .tuteBlue : Color.clear, lineWidth: 3)
+                            .frame(width: 80, height: 80)
+                    )
+                }
+                .offset(y: -20)
+                
+                Spacer()
+                
                 TabBarButton(
                     icon: "hammer.fill",
                     title: "Skills",
@@ -65,38 +107,24 @@ struct CustomTabBar: View {
                 ) {
                     withAnimation(.easeInOut) { selectedTab = .skills }
                 }
+                
+                Spacer()
+                
+                TabBarButton(
+                    icon: "envelope.fill",
+                    title: "Contacto",
+                    isSelected: selectedTab == .contact
+                ) {
+                    withAnimation(.easeInOut) { selectedTab = .contact }
+                }
             }
-            .padding(.horizontal, 44)
+            .padding(.horizontal, 16)
             .frame(height: 70)
             .padding(.bottom, 20)
-
-            Button(action: {
-                withAnimation(.spring(response: 0.35, dampingFraction: 0.6)) {
-                    selectedTab = .about
-                }
-            }) {
-                ZStack {
-                    Circle()
-                        .fill(Color.white)
-                        .frame(width: 72, height: 72)
-                        .shadow(color: .black.opacity(0.15), radius: 6, x: 0, y: 4)
-                    
-                    Image(systemName: "person.crop.circle.fill")
-                        .font(.system(size: 32))
-                        .foregroundColor(selectedTab == .about ? .tuteBlue : .gray)
-                }
-                .overlay(
-                    Circle()
-                        .stroke(selectedTab == .about ? .tuteBlue : Color.clear, lineWidth: 3)
-                        .frame(width: 80, height: 80)
-                )
-            }
-            .offset(y: -20)
         }
         .frame(height: 90)
     }
 }
-
 
 // MARK: - TabBarButton
 struct TabBarButton: View {
@@ -123,4 +151,5 @@ struct TabBarButton: View {
 
 #Preview {
     CustomTabView()
+        .environmentObject(ExperienciasViewModel())
 }

@@ -1,0 +1,156 @@
+[
+  {
+    "name": "Swift",
+    "category": "Programación",
+    "level": "diamond",
+    "image": "swift",
+    "description": "7 años de experiencia en proyectos iOS, apps en producción y mentorías."
+  },
+  {
+    "name": "SwiftUI",
+    "category": "Programación",
+    "level": "platinum",
+    "image": "swiftui"
+  },
+  {
+    "name": "Objective-C",
+    "category": "Programación",
+    "level": "gold",
+    "image": "objc"
+  },
+  {
+    "name": "Java",
+    "category": "Programación",
+    "level": "gold",
+    "image": "java"
+  },
+  {
+    "name": "Angular",
+    "category": "Programación",
+    "level": "gold",
+    "image": "angular"
+  },
+  {
+    "name": "React",
+    "category": "Programación",
+    "level": "silver",
+    "image": "react"
+  },
+  {
+    "name": "RxSwift",
+    "category": "Programación",
+    "level": "silver",
+    "image": "rxswift"
+  },
+  {
+    "name": "RxJs",
+    "category": "Programación",
+    "level": "silver",
+    "image": "rxjs"
+  },
+  {
+    "name": "Node.js",
+    "category": "Programación",
+    "level": "gold",
+    "image": "nodejs"
+  },
+  {
+    "name": "C/C++",
+    "category": "Programación",
+    "level": "silver",
+    "image": "c++"
+  },
+  {
+    "name": "Ruby on Rails",
+    "category": "Programación",
+    "level": "bronze",
+    "image": "rails"
+  },
+
+  {
+    "name": "GitHub",
+    "category": "Herramientas",
+    "level": "gold",
+    "image": "github"
+  },
+  {
+    "name": "Xcode",
+    "category": "Herramientas",
+    "level": "diamond",
+    "image": "xcode"
+  },
+  {
+    "name": "Visual Studio Code",
+    "category": "Herramientas",
+    "level": "platinum",
+    "image": "visualstudiocode"
+  },
+  {
+    "name": "MongoDB",
+    "category": "Bases de datos",
+    "level": "silver",
+    "image": "mongodb"
+  },
+  {
+    "name": "Docker",
+    "category": "Bases de datos",
+    "level": "silver",
+    "image": "docker"
+  },
+  {
+    "name": "Heroku",
+    "category": "Bases de datos",
+    "level": "silver",
+    "image": "heroku"
+  },
+  {
+    "name": "Vercel",
+    "category": "Bases de datos",
+    "level": "silver",
+    "image": "vercel"
+  },
+  {
+    "name": "Railway",
+    "category": "Bases de datos",
+    "level": "silver",
+    "image": "railway"
+  },
+
+  {
+    "name": "Cocoapods",
+    "category": "Gestores de dependencias",
+    "level": "gold",
+    "image": "cocoapods"
+  },
+  {
+    "name": "Carthage",
+    "category": "Gestores de dependencias",
+    "level": "silver",
+    "image": "carthage"
+  },
+  {
+    "name": "Swift Package Manager",
+    "category": "Gestores de dependencias",
+    "level": "bronze",
+    "image": "swiftpackagemanager"
+  },
+
+  {
+    "name": "Firebase",
+    "category": "CI/CD",
+    "level": "gold",
+    "image": "firebase"
+  },
+  {
+    "name": "Amplitude",
+    "category": "CI/CD",
+    "level": "silver",
+    "image": "amplitude"
+  },
+  {
+    "name": "Fastlane",
+    "category": "CI/CD",
+    "level": "platinum",
+    "image": "fastlane"
+  }
+]

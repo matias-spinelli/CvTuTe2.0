@@ -19,6 +19,8 @@ struct SkillsView: View {
     
     var body: some View {
         VStack {
+            
+            TitleView(text: "skills_title")
 
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
@@ -35,7 +37,6 @@ struct SkillsView: View {
                 .padding(.vertical, 8)
             }
             
-
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 16) {
                     ForEach(viewModel.skills(for: selectedCategory)) { skill in

@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct Contacto: Identifiable {
+    let id = UUID()
+    let name: String
+    let image: String 
+    let urlLink: String
+}
