@@ -37,11 +37,11 @@ el código.
 
 | Home                                         | Experiencias                                         | Extras                                         |
 | -------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------- |
-| <img width="250" alt="Simulator Screenshot - iPhone 17 Pro - 2025-09-25 at 15 23 02" src="https://github.com/user-attachments/assets/1c6f9795-8b70-4a42-a58b-05361f8deeaf" /> | <img src="Screenshots/Experiencia Laboral.png" width="250"> | <img src="Screenshots/Extras.png" width="250"> |
+| <img src="Screenshots/Home.png" width="250"> | <img src="Screenshots/Experiencia Laboral.png" width="250"> | <img src="Screenshots/Extras.png" width="250"> |
 
 | Skills                                         | Detalle                                         | Contacto                                         |
 | ------------------------------------------------ | ----------------------------------------------- | -------------------------------------------------- |
-| <img src="Screenshots/Skill.png" width="250"> | <img src="Screenshots/Skill-Detail.png" width="250"> | <img src="Screenshots/Contacto.png" width="250"> |
+| <img src="Screenshots/Skill.png" width="250"> | <img src="Screenshots/Skills-Detail.png" width="250"> | <img src="Screenshots/Contacto.png" width="250"> |
 
 ---
 
