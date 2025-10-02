@@ -21,7 +21,7 @@ Permite navegar de forma visual por mis experiencias, habilidades, extras y dato
   - ✉️ Contacto
 - **Arquitectura MVVM ligera** para mantener escalabilidad y orden en
 el código.
-* **Strings localizados** usando `Localizable.xcstrings` para evitar hardcoding.
+- **Strings localizados** usando `Localizable.xcstrings` para evitar hardcoding.
 
 ---
 

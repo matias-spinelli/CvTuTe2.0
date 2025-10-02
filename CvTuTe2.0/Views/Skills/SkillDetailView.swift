@@ -10,6 +10,7 @@ import SwiftUI
 struct SkillDetailView: View {
     let skill: Skill
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var portfolioViewModel: PortfolioViewModel
 
     var body: some View {
         ZStack(alignment: .topTrailing) {
@@ -37,6 +38,10 @@ struct SkillDetailView: View {
                         .padding(.horizontal, 24)
                 }
 
+                Text(portfolioViewModel.totalExperience(for: skill))
+                    .font(.headline)
+                    .foregroundColor(.tuteBlue)
+
                 Spacer()
             }
             .padding(.top, 8)
@@ -53,8 +58,10 @@ struct SkillDetailView: View {
     }
 }
 
+
 #Preview {
     let skills = SkillsViewModel().skills
     let skill = skills[0]
     SkillDetailView(skill: skill)
+        .environmentObject(PortfolioViewModel())
 }

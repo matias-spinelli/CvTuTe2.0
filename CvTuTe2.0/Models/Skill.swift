@@ -31,3 +31,16 @@ enum SkillLevel: String, Codable {
         case bronze, silver, gold, platinum, diamond
     }
 }
+
+// PARA TEST
+extension Skill {
+    init(name: String) {
+        self.id = UUID()
+        self.name = name
+        self.category = ""
+        self.level = .bronze
+        self.image = ""
+        self.description = nil
+    }
+}
+

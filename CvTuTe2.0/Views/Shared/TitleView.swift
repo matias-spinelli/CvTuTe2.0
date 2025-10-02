@@ -16,7 +16,7 @@ struct TitleView: View {
             .foregroundColor(.tuteBlue)
             .padding([.top, .leading, .trailing])
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.top, 20)
+            .padding(.top, 8)
     }
 }
 

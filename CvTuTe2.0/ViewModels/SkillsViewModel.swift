@@ -39,5 +39,4 @@ class SkillsViewModel: ObservableObject {
         
         return sorted
     }
-    
 }

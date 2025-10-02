@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct SkillsView: View {
-    @StateObject private var viewModel = SkillsViewModel()
     @State private var selectedCategory: String = ""
     @State private var selectedSkill: Skill? = nil
-    
+    @EnvironmentObject var portfolioViewModel: PortfolioViewModel
+
     private let columns = [
         GridItem(.flexible(), spacing: 16),
         GridItem(.flexible(), spacing: 16)
@@ -24,7 +24,7 @@ struct SkillsView: View {
 
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
-                    ForEach(viewModel.categories(), id: \.self) { category in
+                    ForEach(portfolioViewModel.skillsViewModel.categories(), id: \.self) { category in
                         CategoryChipView(
                             category: category,
                             isSelected: selectedCategory == category
@@ -39,7 +39,7 @@ struct SkillsView: View {
             
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 16) {
-                    ForEach(viewModel.skills(for: selectedCategory)) { skill in
+                    ForEach(portfolioViewModel.skillsViewModel.skills(for: selectedCategory)) { skill in
                         SkillCardView(skill: skill)
                             .onTapGesture {
                                 selectedSkill = skill
@@ -55,7 +55,7 @@ struct SkillsView: View {
         }
         
         .onAppear {
-            if let firstCategory = viewModel.categories().first {
+            if let firstCategory = portfolioViewModel.skillsViewModel.categories().first {
                 selectedCategory = firstCategory
             }
         }
@@ -64,4 +64,5 @@ struct SkillsView: View {
 
 #Preview {
     SkillsView()
+        .environmentObject(PortfolioViewModel())
 }

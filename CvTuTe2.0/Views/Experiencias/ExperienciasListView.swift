@@ -9,15 +9,16 @@ import SwiftUI
 
 
 struct ExperienciasListView: View {
-    @EnvironmentObject var experienciasViewModel: ExperienciasViewModel
+    @EnvironmentObject var portfolioViewModel: PortfolioViewModel
 
     var body: some View {
         NavigationStack {
+
+            TitleView(text: "experiencias_title")
+
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                    
-                    TitleView(text: "experiencias_title")
-                                        
+                                                            
                     HStack(spacing: 8) {
                         Image(systemName: "applelogo")
                             .font(.title2)
@@ -28,7 +29,7 @@ struct ExperienciasListView: View {
                     }
                     .padding(.bottom, 10)
                     
-                    ForEach(experienciasViewModel.experiencias) { exp in
+                    ForEach(portfolioViewModel.experienciasViewModel.experiencias) { exp in
                         ExperienciaRow(experiencia: exp)
                     }
                 }
@@ -41,6 +42,6 @@ struct ExperienciasListView: View {
 
 #Preview {
     ExperienciasListView()
-        .environmentObject(ExperienciasViewModel())
+        .environmentObject(PortfolioViewModel())
 }
 

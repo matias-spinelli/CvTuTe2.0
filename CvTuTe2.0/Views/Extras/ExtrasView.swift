@@ -8,33 +8,50 @@
 import SwiftUI
 
 struct ExtrasView: View {
-    @EnvironmentObject var experienciasViewModel: ExperienciasViewModel
-    @StateObject private var viewModel = ExtrasViewModel()
-    
-    @State private var selectedExtra: Extra?
-    @State private var currentPage: Int = 0
+    @EnvironmentObject var portfolioViewModel: PortfolioViewModel
+    @StateObject private var extrasViewModel = ExtrasViewModel()
+    @StateObject private var envelopeViewModel = EnvelopeViewModel()
 
+    @State private var selectedExtra: Extra?
+    
+    @State private var currentExtrasPage: Int = 0
+    @State private var currentEnvelopesPage: Int = 0
+    
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: 8) {
             TitleView(text: "extras_title")
             
             Spacer()
             
-            CarouselView(
-                extras: viewModel.extras,
-                currentPage: $currentPage
+            ExtrasCarousel(
+                extras: extrasViewModel.extras,
+                currentPage: $currentExtrasPage
             ) { extra in
                 selectedExtra = extra
             }
 
-            PageControlView(totalPages: viewModel.extras.count,
-                            currentPage: $currentPage)
+            PageControlView(
+                totalPages: extrasViewModel.extras.count,
+                currentPage: $currentExtrasPage
+            )
             .padding(.top, 12)
+
+            EnvelopesCarousel(
+                envelopes: envelopeViewModel.envelopes,
+                currentPage: $currentEnvelopesPage
+            )
+
+            PageControlView(
+                totalPages: envelopeViewModel.envelopes.count,
+                currentPage: $currentEnvelopesPage
+            )
+            .padding(.top, 12)
+
 
             Spacer()
         }
         .onAppear {
-            viewModel.loadExtras(with: experienciasViewModel.experiencias)
+            extrasViewModel.loadExtras(with: portfolioViewModel.experienciasViewModel.experiencias)
         }
         .fullScreenCover(item: $selectedExtra) { extra in
             FullscreenImageView(extra: extra)
@@ -45,5 +62,5 @@ struct ExtrasView: View {
 
 #Preview {
     ExtrasView()
-        .environmentObject(ExperienciasViewModel())
+        .environmentObject(PortfolioViewModel())
 }
