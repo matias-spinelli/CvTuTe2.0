@@ -12,12 +12,35 @@ class PortfolioViewModel: ObservableObject {
     @Published var skillsViewModel = SkillsViewModel()
     @Published var experienciasViewModel = ExperienciasViewModel()
 
+    func allProjects(for skill: Skill) -> [Proyecto] {
+        var result: [Proyecto] = []
+        
+        for experiencia in experienciasViewModel.experiencias {
+            if experiencia.skills == nil || experiencia.skills?.isEmpty == true {
+                for proyecto in experiencia.proyectos {
+                    if (proyecto.skills ?? []).contains(skill.name) {
+                        result.append(proyecto)
+                    }
+                }
+            } else {
+                if experiencia.skills?.contains(skill.name) == true {
+                    result.append(contentsOf: experiencia.proyectos)
+                }
+            }
+        }
+        return result
+    }
+    
     func projects(for skill: Skill) -> [Proyecto] {
         experienciasViewModel.experiencias.flatMap { exp in
             exp.proyectos.filter { ($0.skills ?? []).contains(skill.name) }
         }
     }
 
+    func experienciasLaboral(for skill: Skill) -> [ExperienciaLaboral] {
+        experienciasViewModel.experiencias.filter({ ($0.skills ?? []).contains(skill.name) })
+    }
+    
     func cursos(for skill: Skill) -> [Curso] {
         experienciasViewModel.experiencias
             .flatMap { $0.cursos ?? [] }
@@ -37,6 +60,13 @@ class PortfolioViewModel: ObservableObject {
             }
         }
         
+        for curso in experienciasViewModel.experiencias.flatMap({ $0.cursos ?? [] }) {
+            if (curso.skills ?? []).contains(skill.name) {
+                totalMonths += DateHelper.totalMonths(from: curso.fechaInicio, to: curso.fechaFin)
+            }
+        }
+        
         return DateHelper.formatDuration(totalMonths: totalMonths)
     }
+
 }

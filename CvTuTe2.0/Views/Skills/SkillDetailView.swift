@@ -30,19 +30,16 @@ struct SkillDetailView: View {
                     .minimumScaleFactor(0.7)
                     .padding(.horizontal, 16)
 
-                if let description = skill.description {
-                    Text(description)
-                        .font(.body)
-                        .foregroundColor(.primary)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 24)
-                }
-
                 Text(portfolioViewModel.totalExperience(for: skill))
-                    .font(.headline)
+                    .font(.title3.bold())
                     .foregroundColor(.tuteBlue)
 
-                Spacer()
+                
+                SkillProjectsGrid(
+                    proyectos: portfolioViewModel.allProjects(for: skill),
+                    cursos: portfolioViewModel.cursos(for: skill)
+                )
+
             }
             .padding(.top, 8)
 

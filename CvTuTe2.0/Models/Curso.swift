@@ -13,12 +13,24 @@ struct Curso: Codable, Identifiable {
     let provider: String
     let fechaInicio: String?
     let fechaFin: String?
-    let duracion: String?
     let image: String?
     let url: String?
     let skills: [String]?
 
     private enum CodingKeys: String, CodingKey {
-        case name, provider, fechaInicio, fechaFin, duracion, image, url, skills
+        case name, provider, fechaInicio, fechaFin, image, url, skills
+    }
+    
+    var periodo: String {
+        let inicio = DateHelper.formatMonthYear(DateHelper.parse(fechaInicio)) ?? ""
+        let fin = DateHelper.formatMonthYear(DateHelper.parse(fechaFin)) ?? "Actualidad"
+        return "\(inicio) - \(fin)"
+    }
+
+    var duracion: String {
+        DateHelper.duration(
+            from: DateHelper.parse(fechaInicio),
+            to: DateHelper.parse(fechaFin)
+        )
     }
 }

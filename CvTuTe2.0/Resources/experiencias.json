@@ -16,21 +16,22 @@
           "tareas": null
         }
       ],
-      "skills": ["iOS", "Swift", "People Lead", "Node.js", "Angular"],
       "cursos": [
             {
               "name": "Angular",
               "provider": "Udemy",
-              "duracion": "2 meses",
-              "image": "udemy_logo",
+              "fechaInicio": "01/04/2025",
+              "fechaFin": "31/05/2025",
+              "image": "udemy",
               "url": null,
               "skills": ["Angular"]
             },
             {
               "name": "Node.js",
               "provider": "Udemy",
-              "duracion": "1 mes",
-              "image": "udemy_logo",
+              "fechaInicio": "01/06/2025",
+              "fechaFin": "30/06/2025",
+              "image": "udemy",
               "url": null,
               "skills": ["Node.js"]
             }
@@ -295,7 +296,8 @@
             {
               "name": "Ruby on Rails",
               "provider": "",
-              "duracion": "1 mes",
+              "fechaInicio": "01/05/2014",
+              "fechaFin": "31/05/2014",
               "image": "",
               "url": null,
               "skills": ["Ruby on Rails"]
