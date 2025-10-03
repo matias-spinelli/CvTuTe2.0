@@ -1,57 +1,17 @@
 [
     {
       "empresa": "Accenture",
+      "shortName": "Accenture",
       "cliente": "Santander",
       "fechaInicio": "01/04/2024",
       "fechaFin": "31/07/2025",
-      "image": "accenturear_logo",
-      "proyectos": [
-        {
-          "name": "Santander",
-          "image": "santander",
-          "fechaInicio": "01/04/2024",
-          "fechaFin": "28/02/2025",
-          "skills": ["iOS", "Swift", "People Lead"],
-          "url": null,
-          "tareas": null
-        }
-      ],
-      "cursos": [
-            {
-              "name": "Angular",
-              "provider": "Udemy",
-              "fechaInicio": "01/04/2025",
-              "fechaFin": "31/05/2025",
-              "image": "udemy",
-              "url": null,
-              "skills": ["Angular"]
-            },
-            {
-              "name": "Node.js",
-              "provider": "Udemy",
-              "fechaInicio": "01/06/2025",
-              "fechaFin": "30/06/2025",
-              "image": "udemy",
-              "url": null,
-              "skills": ["Node.js"]
-            }
-          ]
+      "image": "accenturear_logo"
     },
     {
       "empresa": "Acid Labs",
+      "shortName": "Acid",
       "cliente": "CencoPay",
       "image": "acid_labs_logo",
-      "proyectos": [
-        {
-            "name": "CencoPay",
-            "image": "cencopay",
-            "fechaInicio": "01/10/2023",
-            "fechaFin": "28/02/2024",
-            "skills": ["iOS", "SwiftUI", "TechTalk"],
-            "url": null,
-            "tareas": null
-        }
-      ],
       "tech-talk": [
         {
           "titulo": "Introducción a Swift",
@@ -63,51 +23,21 @@
     },
     {
       "empresa": "Nisum Latam",
+      "shortName": "Nisum",
       "cliente": "Cencosud",
-      "image": "nisum",
-      "proyectos": [
-          {
-              "name": "BCI",
-              "image": "bci 1",
-              "fechaInicio": "01/03/2022",
-              "fechaFin": "30/09/2023",
-              "skills": ["iOS", "Swift", "Firebase", "AppsFlyer", "Amplitude"],
-              "url": null,
-              "tareas": null
-          }
-      ],
+      "image": "nisum"
     },
     {
       "empresa": "Kavak",
+      "shortName": "Kavak",
       "cliente": null,
-      "image": "kavak_logo",
-      "proyectos": [
-          {
-              "name": "Kavak",
-              "image": "kavak",
-              "fechaInicio": "01/07/2021",
-              "fechaFin": "30/09/2022",
-              "skills": ["iOS", "Swift"],
-              "url": null,
-              "tareas": null
-          }
-      ],
+      "image": "kavak_logo"
     },
     {
       "empresa": "Naranja X",
+      "shortName": "Naranja X",
       "cliente": null,
       "image": "naranjax_logo",
-      "proyectos": [
-        {
-            "name": "Naranja X",
-            "image": "naranjax",
-            "fechaInicio": "01/05/2020",
-            "fechaFin": "30/06/2021",
-            "skills": ["iOS", "Swift", "Demo", "TechTalk"],
-            "url": null,
-            "tareas": null
-        }
-      ],
       "tech-talk": [
         {
           "titulo": "RateApp",
@@ -119,33 +49,11 @@
     },
     {
       "empresa": "Wolox",
+      "shortName": "Wolox",
       "cliente": null,
       "fechaInicio": "05/06/2019",
       "fechaFin": "30/04/2020",
       "image": "wolox",
-      "proyectos": [
-        {
-            "name": "Essen",
-            "image": "Essen",
-            "skills": [],
-            "url": null,
-            "tareas": null
-        },
-        {
-            "name": "Mercado Libre",
-            "image": "mercadolibre",
-            "skills": [],
-            "url": null,
-            "tareas": null
-        },
-        {
-            "name": "Mercado Pago",
-            "image": "mercadopago",
-            "skills": [],
-            "url": null,
-            "tareas": null
-        }
-      ],
       "skills": ["iOS", "Swift"],
       "tech-talk": [
         {
@@ -158,26 +66,11 @@
     },
     {
       "empresa": "Flux IT",
+      "shortName": "Galicia",
       "cliente": "Galicia",
       "fechaInicio": "01/08/2017",
       "fechaFin": "31/05/2019",
       "image": "fluxit",
-      "proyectos": [
-        {
-            "name": "App Galicia",
-            "image": "App Galicia",
-            "skills": [],
-            "url": "https://itunes.apple.com/ar/app/app-galicia/id774860115?mt=8",
-            "tareas": null
-        },
-        {
-            "name": "Galicia Office - Empresas",
-            "image": "Galicia Office",
-            "skills": [],
-            "url": "https://apps.apple.com/us/app/galicia-office-empresas/id1101862517",
-            "tareas": null
-        }
-      ],
       "skills": ["iOS", "Swift", "TechTalk"],
       "tech-talk": [
         {
@@ -202,144 +95,38 @@
     },
     {
       "empresa": "Globant",
+      "shortName": "Globant",
       "cliente": null,
       "fechaInicio": "01/02/2016",
       "fechaFin": "31/07/2017",
       "image": "Globant",
-      "proyectos": [
-          {
-              "name": "Humana Pharmacy",
-              "image": "Humana Pharmacy",
-              "skills": [],
-              "url": "https://itunes.apple.com/us/app/humana-pharmacy/id893334296?mt=8",
-              "tareas": null
-          },
-          {
-              "name": "Go 365",
-              "image": "Go 365",
-              "skills": [],
-              "url": "https://itunes.apple.com/us/app/go365/id1166689952?mt=8",
-              "tareas": null
-          }
-      ],
       "skills": ["iOS", "Swift"]
     },
     {
       "empresa": "IT Resources S.A.",
+      "shortName": "Clarin",
       "cliente": "AGEA - Grupo Clarín (Arte Gráfico Editorial Argentina)",
       "fechaInicio": "01/09/2015",
       "fechaFin": "31/01/2016",
       "image": "ITR",
-      "proyectos": [
-        {
-            "name": "Clarín 365",
-            "image": "Clarin 365",
-            "skills": [],
-            "url": "https://itunes.apple.com/ar/app/clarin365/id433507007?mt=8",
-            "tareas": null
-        },
-        {
-            "name": "Gran DT",
-            "image": "Gran DT",
-            "skills": [],
-            "url": "https://itunes.apple.com/ar/app/grandt/id434679797?mt=8",
-            "tareas": null
-        },
-        {
-            "name": "Clarín",
-            "image": "Clarin",
-            "skills": [],
-            "url": null,
-            "tareas": null
-        }
-      ],
       "skills": ["iOS", "Swift", "Objective-C"]
     },
     {
       "empresa": "CANDOIT Engineering & Technology",
+      "shortName": "Candoit",
       "cliente": null,
       "fechaInicio": "07/04/2014",
       "fechaFin": "31/08/2015",
       "image": "Candoit",
-      "proyectos": [
-        {
-            "name": "CashingApp",
-            "image": "CashingApp",
-            "skills": [],
-            "url": null,
-            "tareas": null
-        },
-        {
-            "name": "Expressalo",
-            "image": "Expressalo",
-            "skills": [],
-            "url": "https://itunes.apple.com/us/app/expressalo/id974671529?mt=8",
-            "tareas": null
-        },
-        {
-            "name": "Student Universe",
-            "image": "StudentUniverse",
-            "skills": [],
-            "url": "https://itunes.apple.com/us/app/flights-by-studentuniverse/id696971425?mt=8",
-            "tareas": null
-        },
-        {
-            "name": "Modabound",
-            "image": "Modabound",
-            "skills": [],
-            "url": null,
-            "tareas": null
-        }
-      ],
-      "skills": ["iOS", "Objective-C"],
-      "cursos": [
-            {
-              "name": "Ruby on Rails",
-              "provider": "",
-              "fechaInicio": "01/05/2014",
-              "fechaFin": "31/05/2014",
-              "image": "",
-              "url": null,
-              "skills": ["Ruby on Rails"]
-            }
-          ]
+      "skills": ["iOS", "Objective-C"]
     },
     {
       "empresa": "Huenei IT Services",
+      "shortName": "Huenei",
       "cliente": null,
       "fechaInicio": "07/07/2011",
       "fechaFin": "04/04/2014",
       "image": "Huenei-1",
-      "proyectos": [
-          {
-              "name": "Ficohsa",
-              "image": "Ficohsa",
-              "skills": [],
-              "url": "http://itunes.apple.com/sv/app/ficohsa/id474591239?mt=8",
-              "tareas": null
-          },
-          {
-            "name": "Costco Revista",
-            "image": "Costco Contacto",
-            "skills": [],
-            "url": "http://itunes.apple.com/sv/app/revista-costco/id575694086?mt=8",
-            "tareas": null
-          },
-          {
-            "name": "Costco Mexico",
-            "image": "Costco iphone",
-            "skills": [],
-            "url": "https://itunes.apple.com/mx/app/costco/id748024901?l=en&mt=8",
-            "tareas": null
-          },
-          {
-            "name": "CMR Falabella",
-            "image": "Falabella",
-            "skills": [],
-            "url": "https://itunes.apple.com/cl/app/cmr-falabella/id469248771?mt=8",
-            "tareas": null
-          }
-      ],
       "skills": ["iOS", "Objective-C"]
     }
   ]

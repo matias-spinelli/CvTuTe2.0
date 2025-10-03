@@ -52,8 +52,10 @@ struct ProyectoDetailView: View {
 
 
 #Preview {
-    let experiencias = ExperienciasViewModel().experiencias
-    let experiencia = experiencias[1]
-    let proyectos = experiencia.proyectos
+    let portfolioViewModel = PortfolioViewModel()
+    let experienciasViewModel = portfolioViewModel.experienciasViewModel
+    let experiencias = experienciasViewModel.experiencias
+    let experiencia = experiencias[0]
+    let proyectos = portfolioViewModel.proyectos(for: experiencia)
     ProyectoDetailView(proyecto: proyectos[0])
 }

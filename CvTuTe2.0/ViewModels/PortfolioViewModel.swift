@@ -11,62 +11,74 @@ import Combine
 class PortfolioViewModel: ObservableObject {
     @Published var skillsViewModel = SkillsViewModel()
     @Published var experienciasViewModel = ExperienciasViewModel()
+    @Published var proyectosViewModel = ProyectoViewModel()
+    @Published var cursosViewModel = CursosViewModel()
 
     func allProjects(for skill: Skill) -> [Proyecto] {
         var result: [Proyecto] = []
         
         for experiencia in experienciasViewModel.experiencias {
             if experiencia.skills == nil || experiencia.skills?.isEmpty == true {
-                for proyecto in experiencia.proyectos {
-                    if (proyecto.skills ?? []).contains(skill.name) {
-                        result.append(proyecto)
-                    }
-                }
+                for proyecto in proyectos(for: experiencia) {
+                      if (proyecto.skills ?? []).contains(skill.name) {
+                          result.append(proyecto)
+                      }
+                  }
             } else {
                 if experiencia.skills?.contains(skill.name) == true {
-                    result.append(contentsOf: experiencia.proyectos)
+                    result.append(contentsOf: proyectos(for: experiencia))
                 }
             }
         }
         return result
     }
     
-    func projects(for skill: Skill) -> [Proyecto] {
-        experienciasViewModel.experiencias.flatMap { exp in
-            exp.proyectos.filter { ($0.skills ?? []).contains(skill.name) }
-        }
+    // MARK: - 🔹 Proyectos por Skill
+    func proyectos(for skill: Skill) -> [Proyecto] {
+        proyectosViewModel.proyectos.filter { ($0.skills ?? []).contains(skill.name) }
     }
 
-    func experienciasLaboral(for skill: Skill) -> [ExperienciaLaboral] {
-        experienciasViewModel.experiencias.filter({ ($0.skills ?? []).contains(skill.name) })
-    }
-    
+    // MARK: - 🔹 Cursos por Skill
     func cursos(for skill: Skill) -> [Curso] {
-        experienciasViewModel.experiencias
-            .flatMap { $0.cursos ?? [] }
-            .filter { ($0.skills ?? []).contains(skill.name) }
+        cursosViewModel.cursos.filter { ($0.skills ?? []).contains(skill.name) }
     }
-    
+
+    // MARK: - 🔹 Experiencias por Skill
+    func experiencias(for skill: Skill) -> [ExperienciaLaboral] {
+        experienciasViewModel.experiencias.filter { ($0.skills ?? []).contains(skill.name) }
+    }
+
+    // MARK: - 🔹 Proyectos por Experiencia
+    func proyectos(for experiencia: ExperienciaLaboral) -> [Proyecto] {
+        proyectosViewModel.proyectos.filter { $0.experienciaLaboral == experiencia.shortName }
+    }
+
+    // MARK: - 🔹 Cursos por Experiencia
+    func cursos(for experiencia: ExperienciaLaboral) -> [Curso] {
+        cursosViewModel.cursos.filter { $0.experienciaLaboral == experiencia.shortName }
+    }
+
+    // MARK: - 🔹 Total de experiencia en meses para una Skill
     func totalExperience(for skill: Skill) -> String {
         var totalMonths = 0
-        
+
+        // Experiencias directas
         for exp in experienciasViewModel.experiencias {
-            let projs = exp.proyectos.filter { ($0.skills ?? []).contains(skill.name) }
-            totalMonths += DateHelper.totalMonths(fromProjects: projs)
-            
-            if (exp.skills ?? []).contains(skill.name),
-               exp.proyectos.allSatisfy({ ($0.skills ?? []).isEmpty }) {
+            if (exp.skills ?? []).contains(skill.name) {
                 totalMonths += DateHelper.totalMonths(from: exp.fechaInicio, to: exp.fechaFin)
             }
         }
-        
-        for curso in experienciasViewModel.experiencias.flatMap({ $0.cursos ?? [] }) {
-            if (curso.skills ?? []).contains(skill.name) {
-                totalMonths += DateHelper.totalMonths(from: curso.fechaInicio, to: curso.fechaFin)
-            }
+
+        // Proyectos relacionados
+        for proyecto in proyectos(for: skill) {
+            totalMonths += DateHelper.totalMonths(from: proyecto.fechaInicio, to: proyecto.fechaFin)
         }
-        
+
+        // Cursos relacionados
+        for curso in cursos(for: skill) {
+            totalMonths += DateHelper.totalMonths(from: curso.fechaInicio, to: curso.fechaFin)
+        }
+
         return DateHelper.formatDuration(totalMonths: totalMonths)
     }
-
 }

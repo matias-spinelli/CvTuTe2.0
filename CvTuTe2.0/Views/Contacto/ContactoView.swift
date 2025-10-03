@@ -11,7 +11,9 @@ struct ContactoView: View {
     @StateObject private var viewModel = ContactoViewModel()
 
     var body: some View {
+
         VStack(spacing: 8) {
+
             TitleView(text: "contact_title")
 
             List(viewModel.contactos) { contacto in

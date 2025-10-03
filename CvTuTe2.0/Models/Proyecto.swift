@@ -8,7 +8,7 @@
 import Foundation
 
 struct Proyecto: Codable, Identifiable {
-    var id = UUID()
+    let id = UUID()
     let name: String
     let image: String
     let url: String?
@@ -17,9 +17,10 @@ struct Proyecto: Codable, Identifiable {
     var fechaFin: String?
     let skills: [String]?
     let dispositivo: Dispositivo?
-    
+    let experienciaLaboral: String?
+
     private enum CodingKeys: String, CodingKey {
-        case name, image, url, tareas, fechaInicio, fechaFin, skills, dispositivo
+        case name, image, url, tareas, fechaInicio, fechaFin, skills, dispositivo, experienciaLaboral
     }
     
     var periodo: String {
@@ -38,27 +39,4 @@ struct Proyecto: Codable, Identifiable {
 
 enum Dispositivo: String, Codable {
     case iPhone, iPad, macOS, watchOS, tvOS, multiplataforma
-}
-
-// PARA TEST
-extension Proyecto {
-    init(
-        name: String,
-        image: String,
-        url: String? = nil,
-        tareas: String? = nil,
-        fechaInicio: String? = nil,
-        fechaFin: String? = nil,
-        skills: [String]? = nil,
-        dispositivo: Dispositivo? = nil
-    ) {
-        self.name = name
-        self.image = image
-        self.url = url
-        self.tareas = tareas
-        self.fechaInicio = fechaInicio
-        self.fechaFin = fechaFin
-        self.skills = skills
-        self.dispositivo = dispositivo
-    }
 }

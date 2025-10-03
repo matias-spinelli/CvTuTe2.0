@@ -18,8 +18,9 @@ struct SkillsView: View {
     ]
     
     var body: some View {
+
         VStack {
-            
+
             TitleView(text: "skills_title")
 
             ScrollView(.horizontal, showsIndicators: false) {

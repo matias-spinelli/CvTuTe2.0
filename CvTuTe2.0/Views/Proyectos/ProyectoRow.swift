@@ -24,8 +24,10 @@ struct ProyectoRow: View {
 }
 
 #Preview {
-    let experiencias = ExperienciasViewModel().experiencias
+    let portfolioViewModel = PortfolioViewModel()
+    let experienciasViewModel = portfolioViewModel.experienciasViewModel
+    let experiencias = experienciasViewModel.experiencias
     let experiencia = experiencias[0]
-    let proyectos = experiencia.proyectos
+    let proyectos = portfolioViewModel.proyectos(for: experiencia)
     ProyectoRow(proyecto: proyectos[0])
 }

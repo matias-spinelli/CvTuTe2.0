@@ -8,7 +8,7 @@
 import Foundation
 
 struct Curso: Codable, Identifiable {
-    var id = UUID()
+    let id = UUID()
     let name: String
     let provider: String
     let fechaInicio: String?
@@ -16,9 +16,10 @@ struct Curso: Codable, Identifiable {
     let image: String?
     let url: String?
     let skills: [String]?
-
+    let experienciaLaboral: String?
+    
     private enum CodingKeys: String, CodingKey {
-        case name, provider, fechaInicio, fechaFin, image, url, skills
+        case name, provider, fechaInicio, fechaFin, image, url, skills, experienciaLaboral
     }
     
     var periodo: String {

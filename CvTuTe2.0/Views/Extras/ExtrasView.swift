@@ -18,9 +18,11 @@ struct ExtrasView: View {
     @State private var currentEnvelopesPage: Int = 0
     
     var body: some View {
+
         VStack(spacing: 8) {
+
             TitleView(text: "extras_title")
-            
+
             Spacer()
             
             ExtrasCarousel(

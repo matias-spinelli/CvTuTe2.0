@@ -8,7 +8,7 @@
 import Foundation
 
 struct Skill: Codable, Identifiable {
-    var id = UUID()
+    let id = UUID()
     let name: String
     let category: String
     let level: SkillLevel
@@ -35,7 +35,6 @@ enum SkillLevel: String, Codable {
 // PARA TEST
 extension Skill {
     init(name: String) {
-        self.id = UUID()
         self.name = name
         self.category = ""
         self.level = .bronze

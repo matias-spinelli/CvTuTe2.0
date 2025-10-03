@@ -10,6 +10,7 @@ import SwiftUI
 struct ExperienciaRow: View {
     let experiencia: ExperienciaLaboral
     @State private var isExpanded = false
+    @EnvironmentObject var portfolioViewModel: PortfolioViewModel
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -56,7 +57,7 @@ struct ExperienciaRow: View {
             
             if isExpanded {
                 VStack(alignment: .leading, spacing: 8) {
-                    ForEach(experiencia.proyectos) { proyecto in
+                    ForEach(portfolioViewModel.proyectos(for: experiencia)) { proyecto in
                         NavigationLink {
                             ProyectoDetailView(proyecto: proyecto)
                         } label : {
@@ -78,6 +79,8 @@ struct ExperienciaRow: View {
 
 
 #Preview {
-    let experiencias = ExperienciasViewModel().experiencias
+    let portfolioViewModel = PortfolioViewModel()
+    let experiencias = portfolioViewModel.experienciasViewModel.experiencias
     ExperienciaRow(experiencia: experiencias[0])
+        .environmentObject(PortfolioViewModel())
 }

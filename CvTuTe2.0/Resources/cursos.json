@@ -1,0 +1,42 @@
+[
+    {
+      "name": "SwiftUI",
+      "provider": "",
+      "fechaInicio": "01/09/2025",
+      "fechaFin": "31/10/2025",
+      "image": "",
+      "url": null,
+      "skills": ["SwiftUI"],
+      "experienciaLaboral": "null"
+    },
+    {
+      "name": "Angular",
+      "provider": "Udemy",
+      "fechaInicio": "01/04/2025",
+      "fechaFin": "31/05/2025",
+      "image": "udemy",
+      "url": null,
+      "skills": ["Angular"],
+      "experienciaLaboral": "Accenture"
+    },
+    {
+      "name": "Node.js",
+      "provider": "Udemy",
+      "fechaInicio": "01/06/2025",
+      "fechaFin": "30/06/2025",
+      "image": "udemy",
+      "url": null,
+      "skills": ["Node.js"],
+      "experienciaLaboral": "Accenture"
+    },
+    {
+        "name": "Ruby on Rails",
+        "provider": "",
+        "fechaInicio": "01/05/2014",
+        "fechaFin": "31/05/2014",
+        "image": "",
+        "url": null,
+        "skills": ["Ruby on Rails"],
+        "experienciaLaboral": "Candoit"
+    }
+]

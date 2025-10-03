@@ -16,9 +16,8 @@ struct SkillItemCard: View {
             if let imageName = imageName {
                 Image(imageName)
                     .resizable()
-                    .scaledToFill()
+                    .scaledToFit()
                     .frame(width: 90, height: 90)
-                    .clipped()
                     .cornerRadius(22)
             } else {
                 RoundedRectangle(cornerRadius: 22)
