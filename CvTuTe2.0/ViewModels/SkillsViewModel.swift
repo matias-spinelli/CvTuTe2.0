@@ -30,6 +30,12 @@ class SkillsViewModel: ObservableObject {
             .filter { $0.category == category }
             .sorted { $0.level.rank > $1.level.rank }
     }
+
+    func skills(skills:[Skill], category: String) -> [Skill] {
+        skills
+            .filter { $0.category == category }
+            .sorted { $0.level.rank > $1.level.rank }
+    }
     
     func categories() -> [String] {
         let allCategories = Array(Set(skills.map { $0.category }))

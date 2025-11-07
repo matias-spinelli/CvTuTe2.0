@@ -36,7 +36,7 @@ struct EnvelopeCardView: View {
                 }
                                 
                 Text(text)
-                    .font(.body.italic())
+                    .font(.caption2.italic())
                     .foregroundColor(.primary)
                     .multilineTextAlignment(.leading)
                     .truncationMode(.tail)
@@ -54,7 +54,7 @@ struct EnvelopeCardView: View {
             .padding(.vertical, 8)
             .padding(.horizontal, 16)
         }
-        .frame(width: 280, height: 280)
+        .frame(width: 240, height: 240)
     }
 }
 

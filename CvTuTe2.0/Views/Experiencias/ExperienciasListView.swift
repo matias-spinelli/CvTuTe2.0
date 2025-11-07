@@ -12,30 +12,30 @@ struct ExperienciasListView: View {
     @EnvironmentObject var portfolioViewModel: PortfolioViewModel
 
     var body: some View {
+        
         NavigationStack {
 
-            TitleView(text: "experiencias_title")
+            ScreenContainer(title: "experiencias_title") {
 
-            ScrollView {
-                VStack(alignment: .leading, spacing: 16) {
-                                                            
-                    HStack(spacing: 8) {
-                        Image(systemName: "applelogo")
-                            .font(.title2)
-                            .foregroundColor(.black)
-                        Text("iosdeveloper")
-                            .font(.title3)
-                            .bold()
+                    VStack(alignment: .leading, spacing: 16) {
+                                                                
+                        HStack(spacing: 8) {
+                            Image(systemName: "applelogo")
+                                .font(.title2)
+                                .foregroundColor(.black)
+                            Text("iosdeveloper")
+                                .font(.title3)
+                                .bold()
+                        }
+                        .padding(.bottom, 10)
+                        
+                        ForEach(portfolioViewModel.experienciasViewModel.experiencias) { exp in
+                            ExperienciaRow(experiencia: exp)
+                        }
                     }
-                    .padding(.bottom, 10)
-                    
-                    ForEach(portfolioViewModel.experienciasViewModel.experiencias) { exp in
-                        ExperienciaRow(experiencia: exp)
-                    }
+                    .padding()
                 }
-                .padding()
-            }
-            .background(Color(.systemGroupedBackground).ignoresSafeArea())
+                .background(Color(.systemGroupedBackground).ignoresSafeArea())
         }
     }
 }

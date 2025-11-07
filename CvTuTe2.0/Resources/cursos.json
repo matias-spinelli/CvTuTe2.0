@@ -1,5 +1,25 @@
 [
     {
+      "name": "Java",
+      "provider": "",
+      "fechaInicio": "20/08/2025",
+      "fechaFin": "31/12/2025",
+      "image": "",
+      "url": null,
+      "skills": ["Java"],
+      "experienciaLaboral": "null"
+    },
+    {
+      "name": "React",
+      "provider": "",
+      "fechaInicio": "26/08/2025",
+      "fechaFin": "31/12/2025",
+      "image": "",
+      "url": null,
+      "skills": ["React"],
+      "experienciaLaboral": "null"
+    },
+    {
       "name": "SwiftUI",
       "provider": "",
       "fechaInicio": "01/09/2025",

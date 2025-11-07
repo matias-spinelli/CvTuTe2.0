@@ -26,11 +26,12 @@ struct ExperienciaRow: View {
                         .font(.headline)
                     
                     HStack(spacing: 2) {
-                        Text(experiencia.periodo)
+                        Text(portfolioViewModel.periodoExperiencia(for: experiencia))
                             .font(.footnote)
                             .foregroundColor(.gray)
                         
-                        Text("· \(experiencia.duracion)")
+                        
+                        Text("· \(portfolioViewModel.totalExperience(for: experiencia))")
                             .font(.footnote)
                             .fontWeight(.bold)
                             .foregroundColor(.gray)

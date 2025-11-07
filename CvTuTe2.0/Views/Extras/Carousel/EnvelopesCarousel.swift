@@ -19,7 +19,7 @@ struct EnvelopesCarousel: View {
                 text: envelope.text
             )
         }
-        .frame(height: 280)
+        .frame(height: 240)
         .padding(.vertical, 8)
     }
 }

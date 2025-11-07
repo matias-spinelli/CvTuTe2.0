@@ -32,6 +32,48 @@ class PortfolioViewModel: ObservableObject {
         }
         return result
     }
+
+    // MARK: - 🔹 Skills por Proyecto
+    func skills(for proyecto: Proyecto) -> [Skill] {
+        guard let projectSkillNames = proyecto.skills else { return [] }
+        let allSkills = skillsViewModel.allSkills()
+        return allSkills.filter { projectSkillNames.contains($0.name) }
+    }
+    
+    // MARK: - 🔹 Skills agrupadas por categoría (Proyecto + fallback a Experiencia Laboral)
+    func groupedSkills(for proyecto: Proyecto) -> [(category: String, skills: [Skill])] {
+        // 1️⃣ Intentamos obtener las skills propias del proyecto
+        var allSkills = skills(for: proyecto)
+        
+        // 2️⃣ Si no hay skills propias, buscamos las de su experiencia laboral padre
+        if allSkills.isEmpty,
+           let shortName = proyecto.experienciaLaboral,
+           let experiencia = experienciasViewModel.experiencias.first(where: { $0.shortName == shortName }),
+           let experienciaSkills = experiencia.skills {
+            
+            allSkills = skillsViewModel.allSkills()
+                .filter { experienciaSkills.contains($0.name) }
+        }
+        
+        // 3️⃣ Obtenemos las categorías ordenadas (Programación primero)
+        let orderedCategories = skillsViewModel.categories()
+        
+        // 4️⃣ Agrupamos por categoría (respetando el orden y rank)
+        var result: [(category: String, skills: [Skill])] = []
+        
+        for category in orderedCategories {
+            let filtered = allSkills
+                .filter { $0.category == category }
+                .sorted { $0.level.rank > $1.level.rank }
+            
+            if !filtered.isEmpty {
+                result.append((category: category, skills: filtered))
+            }
+        }
+        
+        return result
+    }
+
     
     // MARK: - 🔹 Proyectos por Skill
     func proyectos(for skill: Skill) -> [Proyecto] {
@@ -80,5 +122,52 @@ class PortfolioViewModel: ObservableObject {
         }
 
         return DateHelper.formatDuration(totalMonths: totalMonths)
+    }
+    
+    // MARK: - 🔹 Total de experiencia en meses para una Experiencia Laboral
+    func totalExperience(for experiencia: ExperienciaLaboral) -> String {
+        
+        if experiencia.fechaInicio != nil && experiencia.fechaFin != nil {
+            return DateHelper.duration(
+                from: DateHelper.parse(experiencia.fechaInicio),
+                to: DateHelper.parse(experiencia.fechaFin)
+            )
+        }
+        
+        var totalMonths = 0
+
+        // Proyectos relacionados
+        for proyecto in proyectos(for: experiencia) {
+            totalMonths += DateHelper.totalMonths(from: proyecto.fechaInicio, to: proyecto.fechaFin)
+        }
+            
+        return DateHelper.formatDuration(totalMonths: totalMonths)
+    }
+    
+    // MARK: - 🔹 Periodo total para una Experiencia Laboral
+    func periodoExperiencia(for experiencia: ExperienciaLaboral) -> String {
+        var fechaInicio: Date?
+        var fechaFin: Date?
+        
+        if experiencia.fechaInicio == nil && experiencia.fechaFin == nil {
+            for proyecto in proyectos(for: experiencia) {
+                guard let inicioProyecto = DateHelper.parse(proyecto.fechaInicio),
+                      let finProyecto = DateHelper.parse(proyecto.fechaFin ?? "") else { continue }
+                
+                if fechaInicio == nil || inicioProyecto < fechaInicio! {
+                    fechaInicio = inicioProyecto
+                }
+                
+                if fechaFin == nil || finProyecto > fechaFin! {
+                    fechaFin = finProyecto
+                }
+            }
+            
+            let inicio = DateHelper.formatMonthYear(fechaInicio) ?? ""
+            let fin = DateHelper.formatMonthYear(fechaFin) ?? "Actualidad"
+            return "\(inicio) - \(fin)"
+        }
+        
+        return experiencia.periodo
     }
 }

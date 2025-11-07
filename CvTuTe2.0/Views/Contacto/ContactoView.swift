@@ -12,14 +12,15 @@ struct ContactoView: View {
 
     var body: some View {
 
-        VStack(spacing: 8) {
+        ScreenContainer(title: "contact_title", scrollable: false) {
+            
+            VStack(spacing: 8) {
 
-            TitleView(text: "contact_title")
-
-            List(viewModel.contactos) { contacto in
-                ContactoRow(contacto: contacto)
+                List(viewModel.contactos) { contacto in
+                    ContactoRow(contacto: contacto)
+                }
+                .listStyle(.insetGrouped)
             }
-            .listStyle(.insetGrouped)
         }
     }
 }

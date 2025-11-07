@@ -18,45 +18,44 @@ struct ExtrasView: View {
     @State private var currentEnvelopesPage: Int = 0
     
     var body: some View {
+        ScreenContainer(title: "extras_title") {
+            VStack(spacing: 8) {
 
-        VStack(spacing: 8) {
+                Spacer()
+                
+                ExtrasCarousel(
+                    extras: extrasViewModel.extras,
+                    currentPage: $currentExtrasPage
+                ) { extra in
+                    selectedExtra = extra
+                }
 
-            TitleView(text: "extras_title")
+                PageControlView(
+                    totalPages: extrasViewModel.extras.count,
+                    currentPage: $currentExtrasPage
+                )
+                .padding(.top, 12)
 
-            Spacer()
-            
-            ExtrasCarousel(
-                extras: extrasViewModel.extras,
-                currentPage: $currentExtrasPage
-            ) { extra in
-                selectedExtra = extra
+                EnvelopesCarousel(
+                    envelopes: envelopeViewModel.envelopes,
+                    currentPage: $currentEnvelopesPage
+                )
+
+                PageControlView(
+                    totalPages: envelopeViewModel.envelopes.count,
+                    currentPage: $currentEnvelopesPage
+                )
+                .padding(.top, 12)
+
+
+                Spacer()
             }
-
-            PageControlView(
-                totalPages: extrasViewModel.extras.count,
-                currentPage: $currentExtrasPage
-            )
-            .padding(.top, 12)
-
-            EnvelopesCarousel(
-                envelopes: envelopeViewModel.envelopes,
-                currentPage: $currentEnvelopesPage
-            )
-
-            PageControlView(
-                totalPages: envelopeViewModel.envelopes.count,
-                currentPage: $currentEnvelopesPage
-            )
-            .padding(.top, 12)
-
-
-            Spacer()
-        }
-        .onAppear {
-            extrasViewModel.loadExtras(with: portfolioViewModel.experienciasViewModel.experiencias)
-        }
-        .fullScreenCover(item: $selectedExtra) { extra in
-            FullscreenImageView(extra: extra)
+            .onAppear {
+                extrasViewModel.loadExtras(with: portfolioViewModel.experienciasViewModel.experiencias)
+            }
+            .fullScreenCover(item: $selectedExtra) { extra in
+                FullscreenImageView(extra: extra)
+            }
         }
     }
 }

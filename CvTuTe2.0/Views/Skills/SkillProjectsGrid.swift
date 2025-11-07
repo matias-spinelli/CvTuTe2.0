@@ -55,7 +55,7 @@ struct SkillProjectsGrid: View {
                     }
                 }
             }
-            .padding(.horizontal)
+            .padding(.horizontal, 16)
             .padding(.top, 10)
         }
     }

@@ -24,7 +24,7 @@
         "image": "bci 1",
         "fechaInicio": "01/03/2022",
         "fechaFin": "30/09/2023",
-        "skills": ["iOS", "Swift", "Firebase", "AppsFlyer", "Amplitude"],
+        "skills": ["iOS", "Swift"],
         "url": null,
         "tareas": null,
         "experienciaLaboral": "Nisum"
@@ -34,7 +34,7 @@
         "image": "kavak",
         "fechaInicio": "01/07/2021",
         "fechaFin": "30/09/2022",
-        "skills": ["iOS", "Swift"],
+        "skills": ["iOS", "Swift", "Amplitude", "AppsFlyer", "Google Tag Manager"],
         "url": null,
         "tareas": null,
         "experienciaLaboral": "Kavak"
@@ -44,7 +44,7 @@
         "image": "naranjax",
         "fechaInicio": "01/05/2020",
         "fechaFin": "30/06/2021",
-        "skills": ["iOS", "Swift"],
+        "skills": ["iOS", "Swift", "Bitrise"],
         "url": null,
         "tareas": null,
         "experienciaLaboral": "Naranja X"

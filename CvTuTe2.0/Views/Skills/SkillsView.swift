@@ -19,45 +19,46 @@ struct SkillsView: View {
     
     var body: some View {
 
-        VStack {
+        ScreenContainer(title: "skills_title") {
+            
+            VStack {
 
-            TitleView(text: "skills_title")
-
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 12) {
-                    ForEach(portfolioViewModel.skillsViewModel.categories(), id: \.self) { category in
-                        CategoryChipView(
-                            category: category,
-                            isSelected: selectedCategory == category
-                        ) {
-                            selectedCategory = category
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 12) {
+                        ForEach(portfolioViewModel.skillsViewModel.categories(), id: \.self) { category in
+                            CategoryChipView(
+                                category: category,
+                                isSelected: selectedCategory == category
+                            ) {
+                                selectedCategory = category
+                            }
                         }
                     }
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
                 }
-                .padding(.horizontal)
-                .padding(.vertical, 8)
+                
+                ScrollView {
+                    LazyVGrid(columns: columns, spacing: 16) {
+                        ForEach(portfolioViewModel.skillsViewModel.skills(for: selectedCategory)) { skill in
+                            SkillCardView(skill: skill)
+                                .onTapGesture {
+                                    selectedSkill = skill
+                                }
+                        }
+                    }
+                    .padding()
+                }
+            }
+
+            .sheet(item: $selectedSkill) { skill in
+                SkillDetailView(skill: skill)
             }
             
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: 16) {
-                    ForEach(portfolioViewModel.skillsViewModel.skills(for: selectedCategory)) { skill in
-                        SkillCardView(skill: skill)
-                            .onTapGesture {
-                                selectedSkill = skill
-                            }
-                    }
+            .onAppear {
+                if let firstCategory = portfolioViewModel.skillsViewModel.categories().first {
+                    selectedCategory = firstCategory
                 }
-                .padding()
-            }
-        }
-
-        .sheet(item: $selectedSkill) { skill in
-            SkillDetailView(skill: skill)
-        }
-        
-        .onAppear {
-            if let firstCategory = portfolioViewModel.skillsViewModel.categories().first {
-                selectedCategory = firstCategory
             }
         }
     }

@@ -28,7 +28,7 @@ struct ExtrasCarousel: View {
                     onTapExtra?(extra)
                 }
         }
-        .frame(height: 280)
+        .frame(height: 200)
     }
 }
 
